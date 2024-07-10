@@ -1,0 +1,156 @@
+HYD_UNIT_CD,DESCRIPTION,SEQ_NR,RED_DEC,GREEN_DEC,BLUE_DEC
+MV,Maaiveld,1010,255,255,200
+AA,Antropogene afzettingen,1510,200,200,200
+HLc,"Holocene afzettingen, complexe eenheid",1112,12,129,12
+BXz,"Formatie van Boxtel, zandige eenheid",1210,255,235,0
+BXz1,"Formatie van Boxtel, eerste zandige eenheid",1211,255,235,0
+BXSCk1,"Formatie van Boxtel, Laagpakket van Schimmert, eerste kleiige eenheid",1212,215,175,0
+BXz2,"Formatie van Boxtel, tweede zandige eenheid",1213,255,235,0
+BXLMk1,"Formatie van Boxtel, Laagpakket van Liempde, eerste kleiige eenheid",1222,225,190,0
+BXk1,"Formatie van Boxtel, eerste kleiige eenheid",1232,225,190,0
+BXz3,"Formatie van Boxtel, derde zandige eenheid",1233,255,235,0
+BXk2,"Formatie van Boxtel, tweede kleiige eenheid",1242,235,205,0
+BXz4,"Formatie van Boxtel, vierde zandige eenheid",1243,255,235,0
+KRz,"Formatie van Kreftenheye, zandige eenheid",1310,176,48,96
+KRz1,"Formatie van Kreftenheye, eerste zandige eenheid",1311,176,48,96
+KRWYk1,"Formatie van Kreftenheye, Laag van Wijchen, eerste kleiige eenheid",1312,86,0,0
+KRz2,"Formatie van Kreftenheye, tweede zandige eenheid",1313,176,48,96
+KRk1,"Formatie van Kreftenheye, eerste kleiige eenheid",1322,111,0,0
+KRz3,"Formatie van Kreftenheye, derde zandige eenheid",1323,176,48,96
+BEz,"Formatie van Beegden, zandige eenheid",1410,200,200,255
+BEz1,"Formatie van Beegden, eerste zandige eenheid",1411,200,200,255
+BEROk1,"Formatie van Beegden, Laag van Rosmalen, eerste kleiige eenheid",1412,160,140,155
+BEk1,"Formatie van Beegden, eerste kleiige eenheid",1422,170,155,180
+BEz2,"Formatie van Beegden, tweede zandige eenheid",1423,200,200,255
+BEk2,"Formatie van Beegden, tweede kleiige eenheid",1432,180,170,205
+BEz3,"Formatie van Beegden, derde zandige eenheid",1433,200,200,255
+KWz,"Formatie van Koewacht, zandige eenheid",1510,172,169,43
+KWz1,"Formatie van Koewacht, eerste zandige eenheid",1511,172,169,43
+WBv1,"Formatie van Woudenberg, eerste venige eenheid",1612,117,37,0
+EEz,"Eem Formatie, zandige eenheid",1710,190,255,115
+EEz1,"Eem Formatie, eerste zandige eenheid",1711,190,255,115
+EEk1,"Eem Formatie, eerste kleiige eenheid",1712,180,210,40
+EEz2,"Eem Formatie, tweede zandige eenheid",1713,190,255,115
+EEk2,"Eem Formatie, tweede kleiige eenheid",1722,190,225,65
+EEz3,"Eem Formatie, derde zandige eenheid",1723,190,255,115
+KRZUk1,"Formatie van Kreftenheye, Laagpakket van Zutphen, eerste kleiige eenheid",1832,136,0,0
+KRz4,"Formatie van Kreftenheye, vierde zandige eenheid",1833,176,48,96
+KRTWk1,"Formatie van Kreftenheye, Laagpakket van Twello, eerste kleiige eenheid",1842,156,18,46
+KRz5,"Formatie van Kreftenheye, vijfde zandige eenheid",1843,176,48,96
+DRz,"Formatie van Drente, zandige eenheid",1910,255,127,80
+DRz1,"Formatie van Drente, eerste zandige eenheid",1911,255,127,80
+DRUIk1,"Formatie van Drente, Laagpakket van Uitdam, eerste kleiige eenheid",1912,215,67,0
+DRz2,"Formatie van Drente, tweede zandige eenheid",1913,255,127,80
+DRGIk1,"Formatie van Drente, Laagpakket van Gieten, eerste kleiige eenheid",1922,225,82,5
+DRz3,"Formatie van Drente, derde zandige eenheid",1923,255,127,80
+DRGIk2,"Formatie van Drente, Laagpakket van Gieten, tweede kleiige eenheid",1932,235,97,30
+DTc,"Gestuwde afzettingen, complexe eenheid",2012,156,156,156
+DNz,"Formatie van Drachten, zandige eenheid",2110,250,250,210
+DNz1,"Formatie van Drachten, eerste zandige eenheid",2111,250,250,210
+URz,"Formatie van Urk, zandige eenheid",2210,189,183,107
+URz1,"Formatie van Urk, eerste zandige eenheid",2211,189,183,107
+URk1,"Formatie van Urk, eerste kleiige eenheid",2212,149,123,7
+URz2,"Formatie van Urk, tweede zandige eenheid",2213,189,183,107
+URk2,"Formatie van Urk, tweede kleiige eenheid",2222,159,138,32
+URz3,"Formatie van Urk, derde zandige eenheid",2223,189,183,107
+PEz,"Formatie van Peelo, zandige eenheid",2310,238,130,238
+PEz1,"Formatie van Peelo, eerste zandige eenheid",2311,238,130,238
+PEk1,"Formatie van Peelo, eerste kleiige eenheid",2312,208,85,163
+PEz2,"Formatie van Peelo, tweede zandige eenheid",2313,238,130,238
+PEk2,"Formatie van Peelo, tweede kleiige eenheid",2322,218,100,188
+PEz3,"Formatie van Peelo, derde zandige eenheid",2323,238,130,238
+URz4,"Formatie van Urk, vierde zandige eenheid",2411,189,183,107
+URk3,"Formatie van Urk, derde kleiige eenheid",2412,169,153,57
+URz5,"Formatie van Urk, vijfde zandige eenheid",2413,189,183,107
+STz,"Formatie van Sterksel, zandige eenheid",2510,205,92,92
+STz1,"Formatie van Sterksel, eerste zandige eenheid",2511,205,92,92
+STk1,"Formatie van Sterksel, eerste kleiige eenheid",2512,185,62,42
+STz2,"Formatie van Sterksel, tweede zandige eenheid",2513,205,92,92
+APz,"Formatie van Appelscha, zandige eenheid",2610,218,165,32
+APz1,"Formatie van Appelscha, eerste zandige eenheid",2611,218,165,32
+SYz,"Formatie van Stramproy, zandige eenheid",2710,255,228,181
+SYz1,"Formatie van Stramproy, eerste zandige eenheid",2711,255,228,181
+SYk1,"Formatie van Stramproy, eerste kleiige eenheid",2712,215,168,81
+SYz2,"Formatie van Stramproy, tweede zandige eenheid",2713,255,228,181
+SYk2,"Formatie van Stramproy, tweede kleiige eenheid",2722,225,183,106
+SYz3,"Formatie van Stramproy, derde zandige eenheid",2723,255,228,181
+SYk3,"Formatie van Stramproy, derde kleiige eenheid",2732,235,198,131
+SYz4,"Formatie van Stramproy, vierde zandige eenheid",2733,255,228,181
+PZWAz,"Formatie van Peize en Formatie van Waalre, zandige eenheid",2810,255,204,0
+PZWAz1,"Formatie van Peize en Formatie van Waalre, eerste zandige eenheid",2811,255,204,0
+WAk1,"Formatie van Waalre, eerste kleiige eenheid",2812,215,105,0
+PZWAz2,"Formatie van Peize en Formatie van Waalre, tweede zandige eenheid",2815,255,204,0
+WAk2,"Formatie van Waalre, tweede kleiige eenheid",2822,225,120,0
+PZk1,"Formatie van Peize, eerste kleiige eenheid",2832,205,180,0
+PZWAz3,"Formatie van Peize en Formatie van Waalre, derde zandige eenheid",2835,255,204,0
+WAk3,"Formatie van Waalre, derde kleiige eenheid",2842,235,135,0
+PZc,"Formatie van Peize, complexe eenheid",2852,235,225,0
+PZWAz4,"Formatie van Peize en Formatie van Waalre, vierde zandige eenheid",2853,255,204,0
+MSz,"Formatie van Maassluis, zandige eenheid",2910,135,206,235
+MSz1,"Formatie van Maassluis, eerste zandige eenheid",2911,135,206,235
+MSk1,"Formatie van Maassluis, eerste kleiige eenheid",2912,95,146,135
+MSz2,"Formatie van Maassluis, tweede zandige eenheid",2913,135,206,235
+MSk2,"Formatie van Maassluis, tweede kleiige eenheid",2922,105,161,160
+MSz3,"Formatie van Maassluis, derde zandige eenheid",2923,135,206,235
+MSc,"Formatie van Maassluis, complexe eenheid",2932,115,176,185
+MSz4,"Formatie van Maassluis, vierde zandige eenheid",2933,135,206,235
+KIz,"Kiezelooliet Formatie, zandige eenheid",3010,188,143,143
+KIz1,"Kiezelooliet Formatie, eerste zandige eenheid",3011,188,143,143
+KIk1,"Kiezelooliet Formatie, eerste kleiige eenheid",3012,138,93,68
+KIz2,"Kiezelooliet Formatie, tweede zandige eenheid",3013,188,143,143
+KIk2,"Kiezelooliet Formatie, tweede kleiige eenheid",3022,148,103,83
+KIz3,"Kiezelooliet Formatie, derde zandige eenheid",3023,188,143,143
+KIk3,"Kiezelooliet Formatie, derde kleiige eenheid",3032,158,113,98
+KIz4,"Kiezelooliet Formatie, vierde zandige eenheid",3033,188,143,143
+KIk4,"Kiezelooliet Formatie, vierde kleiige eenheid",3042,168,123,113
+KIz5,"Kiezelooliet Formatie, vijfde zandige eenheid",3043,188,143,143
+OOz,"Formatie van Oosterhout, zandige eenheid",3110,118,157,39
+OOz1,"Formatie van Oosterhout, eerste zandige eenheid",3111,118,157,39
+OOk1,"Formatie van Oosterhout, eerste kleiige eenheid",3112,88,112,0
+OOz2,"Formatie van Oosterhout, tweede zandige eenheid",3113,118,157,39
+OOc,"Formatie van Oosterhout, complexe eenheid",3122,98,127,0
+IEz,"Formatie van Inden, zandige eenheid",3210,236,121,193
+IEz1,"Formatie van Inden, eerste zandige eenheid",3211,236,121,193
+IEk1,"Formatie van Inden, eerste kleiige eenheid",3212,206,76,118
+IEz2,"Formatie van Inden, tweede zandige eenheid",3213,236,121,193
+IEk2,"Formatie van Inden, tweede kleiige eenheid",3222,216,91,143
+IEz3,"Formatie van Inden, derde zandige eenheid",3223,236,121,193
+BRz,"Formatie van Breda, zandige eenheid",3310,108,188,150
+BRz1,"Formatie van Breda, eerste zandige eenheid",3311,108,188,150
+BRk1,"Formatie van Breda, eerste kleiige eenheid",3312,88,158,100
+BRz2,"Formatie van Breda, tweede zandige eenheid",3313,108,188,150
+VIb1,"Formatie van Ville, eerste bruinkooleenheid",3322,123,57,0
+BRz3,"Formatie van Breda, derde zandige eenheid",3323,108,188,150
+VIb2,"Formatie van Ville, tweede bruinkooleenheid",3332,133,72,0
+BRz4,"Formatie van Breda, vierde zandige eenheid",3333,108,188,150
+VEVOc,"Formatie van Veldhoven, Laagpakket van Voort, complexe eenheid",3432,92,85,0
+RUz,"Rupel Formatie, zandige eenheid",3510,184,123,238
+RUz1,"Rupel Formatie, eerste zandige eenheid",3511,184,123,238
+RUBOk1,"Rupel Formatie, Laagpakket van Boom, eerste kleiige eenheid",3512,144,63,138
+RUz2,"Rupel Formatie, tweede zandige eenheid",3513,184,123,238
+RUk1,"Rupel Formatie, eerste kleiige eenheid",3522,154,78,163
+RUz3,"Rupel Formatie, derde zandige eenheid",3523,184,123,238
+RUk2,"Rupel Formatie, tweede kleiige eenheid",3532,164,93,188
+RUz4,"Rupel Formatie, vierde zandige eenheid",3533,184,123,238
+TOz,"Formatie van Tongeren, zandige eenheid",3610,90,159,219
+TOz1,"Formatie van Tongeren, eerste zandige eenheid",3611,90,159,219
+TOGOk1,"Formatie van Tongeren, Laagpakket van Goudsberg, eerste kleiige eenheid",3612,60,114,144
+TOz2,"Formatie van Tongeren, tweede zandige eenheid",3613,90,159,219
+TOZEWAk1,"Formatie van Tongeren, Laagpakket van Zelzate, Laag van Watervliet, eerste kleiige eenheid",3622,70,129,169
+TOz3,"Formatie van Tongeren, derde zandige eenheid",3623,90,159,219
+DOz,"Formatie van Dongen, zandige eenheid",3710,216,191,216
+DOz1,"Formatie van Dongen, eerste zandige eenheid",3711,216,191,216
+DOASk1,"Formatie van Dongen, Laagpakket van Asse, eerste kleiige eenheid",3712,176,131,116
+DOz2,"Formatie van Dongen, tweede zandige eenheid",3713,216,191,216
+DOk1,"Formatie van Dongen, eerste kleiige eenheid",3722,186,146,141
+DOz3,"Formatie van Dongen, derde zandige eenheid",3723,216,191,216
+DOIEk1,"Formatie van Dongen, Laagpakket van Ieper, eerste kleiige eenheid",3732,196,161,166
+DOz4,"Formatie van Dongen, vierde zandige eenheid",3733,216,191,216
+LAc,"Formatie van Landen, complexe eenheid",3812,208,32,144
+HTc,"Formatie van Heijenrath, complexe eenheid",3912,178,34,34
+HOq,"Formatie van Houthem, kalksteeneenheid",4012,210,105,30
+MTq,"Formatie van Maastricht, kalksteeneenheid",4112,255,160,102
+GUq,"Formatie van Gulpen, kalksteeneenheid",4212,245,222,179
+VAc,"Formatie van Vaals, complexe eenheid",4312,21,153,79
+AKc,"Formatie van Aken, complexe eenheid",4412,152,231,205
+NN,Niet hydrogeologisch geïnterpreteerd,9999,85,85,85
