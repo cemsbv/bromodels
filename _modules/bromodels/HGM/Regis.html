@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bromodels.HGM.Regis &mdash; BROmodels 0.0.4 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/index.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            BROmodels
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tree/getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tree/reference.html">Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">BROmodels</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">bromodels.HGM.Regis</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for bromodels.HGM.Regis</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">xarray</span>
+
+<span class="kn">from</span> <span class="nn">.data</span> <span class="kn">import</span> <span class="n">HGM_STR_table</span>
+
+<span class="n">Number</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://dinodata.nl/opendap/REGIS/REGIS.nc&quot;</span>
+
+
+<div class="viewcode-block" id="RegisDomain"><a class="viewcode-back" href="../../../tree/reference.html#bromodels.HGM.Regis.RegisDomain">[docs]</a><span class="k">def</span> <span class="nf">RegisDomain</span><span class="p">(</span>
+    <span class="n">west</span><span class="p">:</span> <span class="n">Number</span> <span class="o">=</span> <span class="mi">118421</span><span class="p">,</span>
+    <span class="n">south</span><span class="p">:</span> <span class="n">Number</span> <span class="o">=</span> <span class="mi">484233</span><span class="p">,</span>
+    <span class="n">east</span><span class="p">:</span> <span class="n">Number</span> <span class="o">=</span> <span class="mi">121256</span><span class="p">,</span>
+    <span class="n">north</span><span class="p">:</span> <span class="n">Number</span> <span class="o">=</span> <span class="mi">486076</span><span class="p">,</span>
+    <span class="n">bottom</span><span class="p">:</span> <span class="n">Number</span> <span class="o">=</span> <span class="o">-</span><span class="mi">500</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xarray</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extract a Dataset based on a domain (west, south, east, north, bottom) of Regis.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    west : int, float, optional</span>
+<span class="sd">        Coordinate in RD new (EPSG:28992)</span>
+<span class="sd">    south : int, float, optional</span>
+<span class="sd">        Coordinate in RD new (EPSG:28992)</span>
+<span class="sd">    east : int, float, optional</span>
+<span class="sd">        Coordinate in RD new (EPSG:28992)</span>
+<span class="sd">    north : int, float, optional</span>
+<span class="sd">        Coordinate in RD new (EPSG:28992)</span>
+<span class="sd">    bottom : int, float, optional</span>
+<span class="sd">        Bottom of the domain [m NAP]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">west</span> <span class="o">&gt;</span> <span class="n">east</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;west coordinate is larger than east coordinate&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">south</span> <span class="o">&gt;</span> <span class="n">north</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;south coordinate is larger than north coordinate&quot;</span><span class="p">)</span>
+
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">xarray</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">(</span>
+        <span class="p">[</span><span class="s2">&quot;x_bounds&quot;</span><span class="p">,</span> <span class="s2">&quot;y_bounds&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_bounds&quot;</span><span class="p">,</span> <span class="s2">&quot;lon_bounds&quot;</span><span class="p">,</span> <span class="s2">&quot;crs&quot;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span>
+    <span class="p">)</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="n">west</span><span class="p">,</span> <span class="n">east</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="n">south</span><span class="p">,</span> <span class="n">north</span><span class="p">))</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="s2">&quot;layer&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">ds</span><span class="o">.</span><span class="n">bottom</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">bottom</span><span class="p">:</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">bottom</span> <span class="o">&gt;</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sortby</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">lay</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">layer</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">layer</span><span class="o">=</span><span class="n">lay</span><span class="p">)</span><span class="o">.</span><span class="n">kh</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+            <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">layer</span><span class="o">=</span><span class="n">lay</span><span class="p">)</span><span class="o">.</span><span class="n">kv</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="p">):</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No conductivity in layer: </span><span class="si">{</span><span class="n">lay</span><span class="o">.</span><span class="n">values</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ds</span></div>
+
+
+<div class="viewcode-block" id="RegisColumn"><a class="viewcode-back" href="../../../tree/reference.html#bromodels.HGM.Regis.RegisColumn">[docs]</a><span class="k">def</span> <span class="nf">RegisColumn</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Number</span> <span class="o">=</span> <span class="mi">134464</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Number</span> <span class="o">=</span> <span class="mi">454423</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xarray</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extract a Dataset based on a point (x, y, z) location in Regis.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : int, float, optional</span>
+<span class="sd">        Coordinate in RD new (EPSG:28992)</span>
+<span class="sd">    y : int, float, optional</span>
+<span class="sd">        Coordinate in RD new (EPSG:28992)</span>
+<span class="sd">    z : int, float, optional</span>
+<span class="sd">        Depth in m NAP</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    xarray.Dataset</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">xarray</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">(</span>
+        <span class="p">[</span><span class="s2">&quot;x_bounds&quot;</span><span class="p">,</span> <span class="s2">&quot;y_bounds&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_bounds&quot;</span><span class="p">,</span> <span class="s2">&quot;lon_bounds&quot;</span><span class="p">,</span> <span class="s2">&quot;crs&quot;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span>
+    <span class="p">)</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="s2">&quot;layer&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">ds</span></div>
+
+
+<div class="viewcode-block" id="RegisPoint"><a class="viewcode-back" href="../../../tree/reference.html#bromodels.HGM.Regis.RegisPoint">[docs]</a><span class="k">def</span> <span class="nf">RegisPoint</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">Number</span> <span class="o">=</span> <span class="mi">134464</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Number</span> <span class="o">=</span> <span class="mi">454423</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="n">Number</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xarray</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extract a Dataset based on a point (x, y, z) location in Regis.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : int, float, optional</span>
+<span class="sd">        Coordinate in RD new (EPSG:28992)</span>
+<span class="sd">    y : int, float, optional</span>
+<span class="sd">        Coordinate in RD new (EPSG:28992)</span>
+<span class="sd">    z : int, float, optional</span>
+<span class="sd">        Depth in m NAP</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    xarray.Dataset</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">xarray</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">(</span>
+        <span class="p">[</span><span class="s2">&quot;x_bounds&quot;</span><span class="p">,</span> <span class="s2">&quot;y_bounds&quot;</span><span class="p">,</span> <span class="s2">&quot;lat_bounds&quot;</span><span class="p">,</span> <span class="s2">&quot;lon_bounds&quot;</span><span class="p">,</span> <span class="s2">&quot;crs&quot;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span>
+    <span class="p">)</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="s2">&quot;layer&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">])</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">ds</span><span class="o">.</span><span class="n">top</span> <span class="o">&gt;=</span> <span class="n">z</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">bottom</span> <span class="o">&lt;</span> <span class="n">z</span><span class="p">),</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ds</span></div>
+
+
+<div class="viewcode-block" id="regis_stratigraphic_unit"><a class="viewcode-back" href="../../../tree/reference.html#bromodels.HGM.Regis.regis_stratigraphic_unit">[docs]</a><span class="k">def</span> <span class="nf">regis_stratigraphic_unit</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read lookup DataFrame that relates stratigraphic values to description.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Get lookup DataFrame to connect geological units codes to numbers</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">HGM_STR_table</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="dataset_fill"><a class="viewcode-back" href="../../../tree/reference.html#bromodels.HGM.Regis.dataset_fill">[docs]</a><span class="k">def</span> <span class="nf">dataset_fill</span><span class="p">(</span>
+    <span class="n">ds</span><span class="p">:</span> <span class="n">xarray</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">anisotropy</span><span class="p">:</span> <span class="n">Number</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Number</span><span class="p">,</span> <span class="n">Number</span><span class="p">]]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xarray</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Use anisotropy to fill conductivity values and fill missing values based</span>
+<span class="sd">    on user input.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ds: xarray.Dataset</span>
+<span class="sd">    anisotropy : int, float</span>
+<span class="sd">        Magnitude of difference conductivity in different directions</span>
+<span class="sd">        (Vertical = Horizontal * anisotropy)</span>
+<span class="sd">    obj : Dict[Any, Tuple[Number, Number]]</span>
+<span class="sd">        A dictionary with a key corresponding to the layer name and a tuple</span>
+<span class="sd">        containing the horizontal and vertical conductivity value</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    xarray.Dataset</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">assert</span> <span class="s2">&quot;REGIS&quot;</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="s2">&quot;This is not a Regis Dataset&quot;</span>
+
+    <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;kv&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">kv</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">kh</span> <span class="o">*</span> <span class="n">anisotropy</span><span class="p">)</span>
+    <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;kh&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">kh</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">kv</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">anisotropy</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;kh&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">layer</span><span class="o">=</span><span class="n">key</span><span class="p">)]</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;kv&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">layer</span><span class="o">=</span><span class="n">key</span><span class="p">)]</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">top</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">lay</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">layer</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">layer</span><span class="o">=</span><span class="n">lay</span><span class="p">)</span><span class="o">.</span><span class="n">kh</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+            <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">layer</span><span class="o">=</span><span class="n">lay</span><span class="p">)</span><span class="o">.</span><span class="n">kv</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="p">):</span>
+            <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;No conductivity in layer: </span><span class="si">{</span><span class="n">lay</span><span class="o">.</span><span class="n">values</span><span class="si">}</span><span class="s2">, please provide the value&quot;</span>
+            <span class="p">)</span>
+
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;layer&quot;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">sizes</span><span class="p">[</span><span class="s2">&quot;layer&quot;</span><span class="p">])))</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">swap_dims</span><span class="p">({</span><span class="s2">&quot;layer&quot;</span><span class="p">:</span> <span class="s2">&quot;index&quot;</span><span class="p">})</span>
+
+    <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;kv&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">kv</span><span class="o">.</span><span class="n">bfill</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+    <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;kh&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">kh</span><span class="o">.</span><span class="n">bfill</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+
+    <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;top&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">top</span><span class="o">.</span><span class="n">interpolate_na</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+    <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;bottom&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">bottom</span><span class="o">.</span><span class="n">interpolate_na</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">swap_dims</span><span class="p">({</span><span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="s2">&quot;layer&quot;</span><span class="p">})</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ds</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, CEMS BV.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

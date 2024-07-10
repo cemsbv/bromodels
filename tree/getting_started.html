@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting started &mdash; BROmodels 0.0.4 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/index.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reference" href="reference.html" />
+    <link rel="prev" title="Welcome to BROmodels’s documentation!" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BROmodels
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-use-bromodels-repo">How to use BROmodels repo?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BROmodels</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Getting started</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tree/getting_started.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="getting-started">
+<span id="id1"></span><h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h1>
+<p>The easiest way to get started with BROmodels is in the <strong>Nuclei Notebooks</strong>.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<p>To install this package, including the <cite>map</cite> and <cite>gef</cite> reading functionality, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">bromodels</span>
+</pre></div>
+</div>
+<p>Than you can import BROmodels as follows:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">bromodels</span>
+</pre></div>
+</div>
+<p>or any equivalent <code class="code docutils literal notranslate"><span class="pre">import</span></code> statement.</p>
+</section>
+<section id="how-to-use-bromodels-repo">
+<h2>How to use BROmodels repo?<a class="headerlink" href="#how-to-use-bromodels-repo" title="Permalink to this heading"></a></h2>
+<p>How to plot a GeoTop column?:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">bromodels</span>
+
+<span class="gp">In [3]: </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="gp">In [4]: </span><span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
+
+<span class="gp">In [5]: </span><span class="n">_link</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">   ...: </span>    <span class="s2">&quot;lithok&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">bromodels</span><span class="o">.</span><span class="n">GeoTop</span><span class="o">.</span><span class="n">geotop_lithology_class</span><span class="p">(),</span> <span class="s2">&quot;LITHO_CLASS_CD&quot;</span><span class="p">),</span>
+<span class="gp">   ...: </span>    <span class="s2">&quot;strat&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">bromodels</span><span class="o">.</span><span class="n">GeoTop</span><span class="o">.</span><span class="n">geotop_stratigraphic_unit</span><span class="p">(),</span> <span class="s2">&quot;STR_UNIT_CD&quot;</span><span class="p">),</span>
+<span class="gp">   ...: </span><span class="p">}</span>
+<span class="gp">   ...: </span>
+
+<span class="go"># get data</span>
+<span class="gp">In [6]: </span><span class="n">soildata</span> <span class="o">=</span> <span class="n">bromodels</span><span class="o">.</span><span class="n">GeoTopColumn</span><span class="p">()</span>
+
+<span class="gp">In [7]: </span><span class="n">soildata</span>
+<span class="gh">Out[7]: </span>
+<span class="go">&lt;xarray.Dataset&gt; Size: 6kB</span>
+<span class="go">Dimensions:  (z: 104)</span>
+<span class="go">Coordinates:</span>
+<span class="go">    x        int32 4B 134500</span>
+<span class="go">    y        int32 4B 454400</span>
+<span class="go">  * z        (z) float32 416B 1.5 1.0 0.5 0.0 -0.5 ... -48.5 -49.0 -49.5 -50.0</span>
+<span class="go">Data variables: (12/13)</span>
+<span class="go">    strat    (z) float32 416B 1e+03 1e+03 1e+03 ... 5.07e+03 5.07e+03 5.07e+03</span>
+<span class="go">    lithok   (z) float32 416B 0.0 0.0 0.0 6.0 3.0 3.0 ... 3.0 6.0 6.0 6.0 6.0</span>
+<span class="go">    kans_1   (z) float32 416B ...</span>
+<span class="go">    kans_2   (z) float32 416B ...</span>
+<span class="go">    kans_3   (z) float32 416B ...</span>
+<span class="go">    kans_4   (z) float32 416B ...</span>
+<span class="go">    ...       ...</span>
+<span class="go">    kans_6   (z) float32 416B ...</span>
+<span class="go">    kans_7   (z) float32 416B ...</span>
+<span class="go">    kans_8   (z) float32 416B ...</span>
+<span class="go">    kans_9   (z) float32 416B ...</span>
+<span class="go">    onz_lk   (z) float32 416B ...</span>
+<span class="go">    onz_ls   (z) float32 416B ...</span>
+<span class="go">Attributes:</span>
+<span class="go">    title:         geotop v01r6 (100.0m * 100.0m * 0.5m</span>
+<span class="go">    references:    http://www.dinoloket.nl/detaillering-van-de-bovenste-lagen...</span>
+<span class="go">    comment:       GeoTOP 1.6 (lithoklasse)</span>
+<span class="go">    disclaimer:    http://www.dinoloket.nl</span>
+<span class="go">    terms_of_use:  http://www.dinoloket.nl</span>
+<span class="go">    institution:   TNO / Geologische Dienst Nederland</span>
+<span class="go">    Conventions:   CF-1.4</span>
+<span class="go">    source:        Generated by nl.tno.dino.geo3dmodel.generator.GeoTOPVoxelM...</span>
+<span class="go">    history:       Generated on Thu Oct 05 17:01:25 CEST 2023</span>
+</pre></div>
+</div>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># set variable</span>
+<span class="gp">In [8]: </span><span class="n">var</span> <span class="o">=</span> <span class="s2">&quot;strat&quot;</span>
+
+<span class="go"># create plot</span>
+<span class="gp">In [9]: </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="gp">In [10]: </span><span class="n">df</span><span class="p">,</span> <span class="n">CD</span> <span class="o">=</span> <span class="n">_link</span><span class="p">[</span><span class="n">var</span><span class="p">]</span>
+
+<span class="gp">In [11]: </span><span class="k">for</span> <span class="n">z</span><span class="p">,</span> <span class="n">nr</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">soildata</span><span class="o">.</span><span class="n">z</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">soildata</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span>
+<span class="gp">   ....: </span>        <span class="p">[</span><span class="n">soildata</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">soildata</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">values</span> <span class="o">+</span> <span class="mi">100</span><span class="p">],</span>
+<span class="gp">   ....: </span>        <span class="n">z</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span>
+<span class="gp">   ....: </span>        <span class="n">z</span><span class="p">,</span>
+<span class="gp">   ....: </span>        <span class="n">color</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;VOXEL_NR&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">nr</span><span class="p">][</span>
+<span class="gp">   ....: </span>            <span class="p">[</span><span class="s2">&quot;RED_DEC&quot;</span><span class="p">,</span> <span class="s2">&quot;GREEN_DEC&quot;</span><span class="p">,</span> <span class="s2">&quot;BLUE_DEC&quot;</span><span class="p">]</span>
+<span class="gp">   ....: </span>        <span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="gp">   ....: </span>        <span class="o">/</span> <span class="mi">255</span><span class="p">,</span>
+<span class="gp">   ....: </span>    <span class="p">)</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [12]: </span><span class="n">patch_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="gp">In [13]: </span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;VOXEL_NR&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">soildata</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)]</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+<span class="gp">   ....: </span>    <span class="n">data_key</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span>
+<span class="gp">   ....: </span>        <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">RED_DEC</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">GREEN_DEC</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">BLUE_DEC</span> <span class="o">/</span> <span class="mi">255</span><span class="p">),</span>
+<span class="gp">   ....: </span>        <span class="n">label</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="n">CD</span><span class="p">],</span>
+<span class="gp">   ....: </span>    <span class="p">)</span>
+<span class="gp">   ....: </span>    <span class="n">patch_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_key</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [14]: </span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">patch_list</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
+<span class="gh">Out[14]: </span><span class="go">&lt;matplotlib.legend.Legend at 0x7f6dbc3d3850&gt;</span>
+
+<span class="gp">In [15]: </span><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/GEOTOP.png" src="../_images/GEOTOP.png" />
+<p>More information about other user cases following soon!</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to BROmodels’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="reference.html" class="btn btn-neutral float-right" title="Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, CEMS BV.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
