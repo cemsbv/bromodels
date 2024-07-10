@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "bromodels"
-version = "0.0.0"
+version = "0.0.1"
 description = "The GEOTOP and REGIS data downloaded from the DINOloket OPeNDAP server."
 dependencies = [
         "matplotlib>=3.3.3",
