@@ -89,7 +89,7 @@ kiwisolver==1.4.5
     # via matplotlib
 llvmlite==0.43.0
     # via numba
-m2r2==0.3.2
+m2r2==0.3.3.post2
     # via bromodels (pyproject.toml)
 markupsafe==2.1.5
     # via jinja2
