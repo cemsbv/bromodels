@@ -3,7 +3,7 @@ import numpy as np
 import bromodels
 
 
-def test_regis_dis():
+def test_regis_dis() -> None:
     west = 118246.0
     east = 121601.6
     south = 484755.1
@@ -14,7 +14,7 @@ def test_regis_dis():
     assert np.all(ds.y.diff("y") == -100)
 
 
-def test_stratigraphic():
+def test_stratigraphic() -> None:
     df = bromodels.HGM.Regis.regis_stratigraphic_unit()
     assert len(df) == 155
     assert np.all(
@@ -23,7 +23,7 @@ def test_stratigraphic():
     )
 
 
-def test_regis_fill():
+def test_regis_fill() -> None:
     west = 118246.0
     east = 121601.6
     south = 484755.1
@@ -39,7 +39,7 @@ def test_regis_fill():
     np.testing.assert_allclose(ds2.kv.loc[dict(layer=b"HLc")], 5)
 
 
-def test_regis_point():
+def test_regis_point() -> None:
     west = 123659.2
     south = 480710.9
     east = 134996.4
@@ -57,7 +57,7 @@ def test_regis_point():
     )
 
 
-def test_regis_column():
+def test_regis_column() -> None:
     west = 123659.2
     south = 480710.9
     east = 134996.4

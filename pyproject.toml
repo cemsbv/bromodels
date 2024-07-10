@@ -76,6 +76,10 @@ module = [
     "numpy.*",
     "pytest.*",
     "setuptools.*",
+    "xarray.*",
+    "pandas.*",
+    "matplotlib.*",
+    "pyvista.*"
 ]
 ignore_missing_imports = true
 

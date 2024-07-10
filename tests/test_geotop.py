@@ -3,7 +3,7 @@ import numpy as np
 import bromodels
 
 
-def test_geotop_dis():
+def test_geotop_dis() -> None:
     west = 118246.0
     east = 121601.6
     south = 484755.1
@@ -15,7 +15,7 @@ def test_geotop_dis():
     assert np.all(ds.z.diff("z") == -0.5)
 
 
-def test_stratigraphic():
+def test_stratigraphic() -> None:
     df = bromodels.GTM.GeoTop.geotop_lithology_class()
     assert len(df) == 11
     assert np.all(
@@ -47,7 +47,7 @@ def test_stratigraphic():
     )
 
 
-def test_geotop_point():
+def test_geotop_point() -> None:
     west = 123659.2
     south = 480710.9
     east = 134996.4
@@ -65,7 +65,7 @@ def test_geotop_point():
     )
 
 
-def test_geotop_column():
+def test_geotop_column() -> None:
     west = 123659.2
     south = 480710.9
     east = 134996.4
