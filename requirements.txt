@@ -262,7 +262,7 @@ vtk==9.3.1
     # via pyvista
 wcwidth==0.2.13
     # via prompt-toolkit
-webob==1.8.7
+webob==1.8.8
     # via pydap
 xarray[accel,io]==2024.6.0
     # via bromodels (pyproject.toml)
