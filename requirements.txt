@@ -18,7 +18,7 @@ beautifulsoup4==4.12.3
     # via pydap
 black==24.4.2
     # via bromodels (pyproject.toml)
-bottleneck==1.4.0
+bottleneck==1.6.0
     # via xarray
 certifi==2024.7.4
     # via
