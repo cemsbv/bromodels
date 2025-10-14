@@ -24,7 +24,7 @@ certifi==2024.7.4
     # via
     #   netcdf4
     #   requests
-cftime==1.6.4
+cftime==1.6.5
     # via
     #   netcdf4
     #   xarray
