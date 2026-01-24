@@ -57,7 +57,7 @@ fasteners==0.19
     # via zarr
 flox==0.9.8
     # via xarray
-fonttools==4.53.1
+fonttools==4.60.2
     # via matplotlib
 fsspec==2024.6.1
     # via xarray
