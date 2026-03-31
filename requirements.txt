@@ -194,7 +194,7 @@ pytz==2024.1
     # via pandas
 pyvista==0.44.0
     # via bromodels (pyproject.toml)
-requests==2.32.3
+requests==2.33.0
     # via
     #   coveralls
     #   pooch
