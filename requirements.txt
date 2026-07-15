@@ -100,7 +100,7 @@ matplotlib==3.9.1
     #   vtk
 matplotlib-inline==0.1.7
     # via ipython
-mistune==0.8.4
+mistune==3.3.0
     # via m2r2
 mypy-extensions==1.0.0
     # via black
