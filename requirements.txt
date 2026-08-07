@@ -16,7 +16,7 @@ backcall==0.2.0
     # via ipython
 beautifulsoup4==4.12.3
     # via pydap
-black==24.4.2
+black==26.3.1
     # via bromodels (pyproject.toml)
 bottleneck==1.4.0
     # via xarray
