@@ -85,7 +85,7 @@ jinja2==3.1.4
     # via
     #   pydap
     #   sphinx
-kiwisolver==1.4.5
+kiwisolver==1.5.1
     # via matplotlib
 llvmlite==0.43.0
     # via numba
