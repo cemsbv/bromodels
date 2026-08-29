@@ -30,7 +30,7 @@ cftime==1.6.4
     #   xarray
 charset-normalizer==3.3.2
     # via requests
-click==8.1.7
+click==8.5.0
     # via black
 contourpy==1.2.1
     # via matplotlib
