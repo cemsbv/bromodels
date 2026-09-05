@@ -104,7 +104,7 @@ mistune==0.8.4
     # via m2r2
 mypy-extensions==1.0.0
     # via black
-netcdf4==1.7.1.post1
+netcdf4==1.7.4
     # via xarray
 numba==0.60.0
     # via numbagg
