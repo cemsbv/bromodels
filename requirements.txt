@@ -150,7 +150,7 @@ pandas==2.2.2
     # via
     #   flox
     #   xarray
-parso==0.8.4
+parso==0.8.7
     # via jedi
 pathspec==0.12.1
     # via black
